@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title></title>
+    <!--[if gte mso 9]>
+    <style>
+        .text_container{
+            /*word-break: break-all;*/ /*thi will break all words in outlook*/
+        }
+
+        .inner-row-table {
+            border: none;
+            width: 600px !important;
+        }
+
+        .newsletter-button-link, .text-element-td {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <![endif]-->
+    <style type="text/css">
+        body {
+            margin: 0 !important;
+            padding: 0 !important
+        }
+
+        p {
+            margin: 0
+        }
+
+        table {
+            border-collapse: collapse;
+            min-height: 0 !important
+        }
+
+        td {
+            border-collapse: collapse;
+            white-space: -moz-pre-wrap !important;
+            white-space: -webkit-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            white-space: pre-wrap;
+            word-wrap: normal;
+            word-break: normal;
+            white-space: normal;
+            border: none !important
+        }
+
+        .main-table,
+        .newsletter-row {
+            width: 100%
+        }
+
+        .component.text-component a {
+            color: #337ab7;
+            text-decoration: none
+        }
+
+        .component.text-component a:focus,
+        .component.text-component a:hover {
+            color: #23527c;
+            text-decoration: underline;
+            outline: 0
+        }
+
+        @media only screen and (max-width:640px) {
+            body {
+                width: auto !important
+            }
+
+            table {
+                border-collapse: initial
+            }
+
+            .main-table,
+            .newsletter-row {
+                width: auto
+            }
+
+            .newsletter-row .inner-row-table {
+                max-width: 600px;
+                width: 100% !important
+            }
+
+            .newsletter-row .inner-row-table {
+                table-layout: fixed
+            }
+
+            .slot {
+                width: 100% !important;
+                max-width: 100% !important;
+                display: block
+            }
+
+            .slot.ONE_FOURTH {
+                width: 50% !important;
+                max-width: 50% !important;
+                display: inline-block
+            }
+
+            .component .newsletter-button-link .button {
+                width: auto !important
+            }
+
+            .component .image {
+                mso-line-height-rule: exactly
+            }
+
+            .component,
+            .image table {
+                width: 100% !important
+            }
+
+            .component .image img {
+                max-width: 100% !important
+            }
+
+            .slot.HALF .image img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_THIRD .image img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_FOURTH .image img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .component .image img.not-resized {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+
+            .product-component img {
+                max-width: 100% !important
+            }
+
+            .slot.HALF .product-component img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_THIRD .product-component img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_FOURTH .product-component img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .product-component img.not-resized {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+
+            .slot-spacing {
+                display: none
+            }
+
+            .slot .component .newsletter-main-content .image.article-image-container {
+                width: 33.3% !important
+            }
+
+            #bg_color_table {
+                width: 100%
+            }
+
+            .non-responsive .slot-spacing {
+                display: table-cell
+            }
+
+            .non-responsive .slot-spacing.CENTER {
+                display: table-cell
+            }
+
+            .non-responsive .slot {
+                display: table-cell
+            }
+
+            .non-responsive .slot.FULL {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_THIRD {
+                width: 33.3% !important;
+                max-width: 33.3% !important
+            }
+
+            .non-responsive .slot.HALF {
+                width: 50% !important;
+                max-width: 50% !important
+            }
+
+            .non-responsive .slot.TWO_THIRDS {
+                width: 66.6% !important;
+                max-width: 66.6% !important
+            }
+
+            .non-responsive .slot.ONE_FOURTH {
+                width: 25% !important;
+                max-width: 25% !important
+            }
+
+            .non-responsive .slot.FULL .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_THIRD .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.HALF .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.TWO_THIRDS .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_FOURTH .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.FULL .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_THIRD .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.HALF .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.TWO_THIRDS .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_FOURTH .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.HALF .text_container {
+                display: table-cell;
+                width: 530px
+            }
+
+            .fix-android-mail {
+                display: none
+            }
+
+            .row-table-body {
+                width: 100% !important
+            }
+
+            .product-element-price {
+                width: 50% !important;
+                margin: 0 !important;
+                padding: 10px !important
+            }
+        }
+
+        @media only screen and (max-width:450px) {
+            body {
+                width: auto !important
+            }
+
+            .main-table,
+            .newsletter-row {
+                width: auto
+            }
+
+            table {
+                border-collapse: initial
+            }
+
+            .newsletter-row .inner-row-table {
+                max-width: 600px;
+                width: 100%
+            }
+
+            .newsletter-row .inner-row-table {
+                table-layout: fixed
+            }
+
+            .slot {
+                width: 100% !important;
+                max-width: 100% !important;
+                display: block
+            }
+
+            .slot.ONE_FOURTH {
+                width: 50% !important;
+                max-width: 50% !important;
+                display: inline-block
+            }
+
+            .component .newsletter-button-link .button {
+                width: auto !important
+            }
+
+            .component .image {
+                mso-line-height-rule: exactly
+            }
+
+            .component,
+            .image table {
+                width: 100% !important
+            }
+
+            .component .image img {
+                max-width: 100% !important
+            }
+
+            .slot.HALF .image img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_THIRD .image img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_FOURTH .image img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .component .image img.not-resized {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+
+            .product-component img {
+                max-width: 100% !important
+            }
+
+            .slot.HALF .product-component img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_THIRD .product-component img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .slot.ONE_FOURTH .product-component img.not-resized {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .product-component img.not-resized {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+
+            .slot-spacing {
+                display: none
+            }
+
+            .slot .component .newsletter-main-content .image.article-image-container {
+                width: 33.3% !important
+            }
+
+            #bg_color_table {
+                width: 100%
+            }
+
+            .non-responsive .slot-spacing {
+                display: table-cell
+            }
+
+            .non-responsive .slot-spacing.CENTER {
+                display: table-cell
+            }
+
+            .non-responsive .slot {
+                display: table-cell
+            }
+
+            .non-responsive .slot.FULL {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_THIRD {
+                width: 33.3% !important;
+                max-width: 33.3% !important
+            }
+
+            .non-responsive .slot.HALF {
+                width: 50% !important;
+                max-width: 50% !important
+            }
+
+            .non-responsive .slot.TWO_THIRDS {
+                width: 66.6% !important;
+                max-width: 66.6% !important
+            }
+
+            .non-responsive .slot.ONE_FOURTH {
+                width: 25% !important;
+                max-width: 25% !important
+            }
+
+            .non-responsive .slot.FULL .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_THIRD .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.HALF .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.TWO_THIRDS .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_FOURTH .component .image img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.FULL .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_THIRD .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.HALF .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.TWO_THIRDS .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.ONE_FOURTH .product-component img {
+                max-width: 100% !important
+            }
+
+            .non-responsive .slot.HALF .text_container {
+                display: table-cell;
+                width: 530px
+            }
+
+            .fix-android-mail {
+                display: none
+            }
+
+            .row-table-body {
+                width: 100% !important
+            }
+
+            .product-element-price {
+                width: 50% !important;
+                margin: 0 !important;
+                padding: 10px !important
+            }
+        }
+    </style>
+</head>
+
+<body style="padding: 0px; margin: 0px; font-family: arial, sans-serif; background-repeat: repeat-x; background-size: auto; background-color: rgb(255, 255, 255);" border="0">
+<table align="center" class="wrapper-table" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="background-repeat: repeat-x; background-size: auto; background-color: rgb(255, 255, 255);">
+    <tbody>
+    <tr>
+        <td class="wrapper-td" valign="top" align="center" style="background-repeat: repeat-x; background-size: auto; background-color: rgb(255, 255, 255);">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" class="main-table" width="100%" data-border-width="3px" data-border-color="#ffffff" data-border-style="solid">
+                <tbody>
+                <tr>
+                    <td align="center" class="content">
+                        <table data-structure-type="row" data-row-type="FULL" data-row-id="eb9df9f6-06f2-5e34-84f5-920734d6db80" data-row-behavior="NORMAL" data-row-repeat-count="5" data-row-sort-products="Orders" data-row-background-color-wide="transparent" cellpadding="0" cellspacing="0" width="100%" class="newsletter-row  " bgcolor="transparent">
+                            <tbody>
+                            <tr>
+                                <td class="row-td" align="center">
+                                    <table class="inner-row-table" cellpadding="0" cellspacing="0" width="600" valign="top" bgcolor="transparent" style="border-top: 3px solid rgb(255, 255, 255); border-left: 3px solid rgb(255, 255, 255); border-right: 3px solid rgb(255, 255, 255); border-bottom: none; background-repeat: no-repeat; border-radius: 5px;">
+                                        <tbody class="row-table-body" style="display: table; width: 600px;">
+                                        <tr>
+                                            <td class="slot FULL" data-structure-type="slot" data-slot-type="FULL" width="600" cellpadding="0" cellspacing="0" align="left" valign="top" style="font-weight: normal; max-width: 600px; width: 600px; overflow: visible;">
+                                                <table class="component" data-component-type="image" data-parent-slot-type="FULL" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: transparent;">
+                                                    <tbody>
+                                                    <tr class="newsletter-main-content">
+                                                        <td class="image image-container" align="center" style="line-height: 1px;"><img src="https://email-images.chinesepod.com/images/freedom-day/22868e7b5a3f4466ab72442082bb6559httpsucarecdn.jpeg" alt="Email Image" class="newsletter-image " width="600" height="auto" data-resize-width="600" data-resize-height="543" data-original-src="https://email-images.chinesepod.com/images/freedom-day/22868e7b5a3f4466ab72442082bb6559httpsucarecdn.jpeg" align="bottom" style="border: 0px;" /></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component text-component" data-component-type="text" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: rgb(255, 255, 255);">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="element-td text-element-td" style="padding: 25px; overflow-wrap: break-word; word-break: break-word;">
+                                                            <div class="text_container newsletter-main-content" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; line-height: 1.3; font-size: 16px;">
+                                                                <p style="margin: 0px; padding: 0px;"><span style="font-family:&quot;Times New Roman&quot;,Times,serif;"><span style="font-size:18px;">Hi <%= firstName %>,</span></span></p>
+                                                                <p style="margin: 0px; padding: 0px;"> </p>
+                                                                <p style="margin: 0px; padding: 0px;"> </p>
+                                                                <p style="margin: 0px; padding: 0px;"><span style="font-family:&quot;Times New Roman&quot;,Times,serif;"><span style="font-size:18px;"><span lang="EN-US">FREEDOM DAY is here! Let ChinesePod celebrate this special day with you by offering an exclusive <strong>25% discount</strong> to South African users only! Upgrade your free or basic ChinesePod account to PREMIUM within the next 24 hours and SAVE 25%!</span></span></span></p>
+                                                                <p class="fix-android-mail" style="width: 550px; margin: 0px; padding: 0px;"></p>
+                                                            </div>
+                                                            <div>
+                                                                <!--[if gte mso 15]><div style="display: 'none'; font-size: 1px; line-height: 1px;">&nbsp;</div><![endif]-->
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component" data-component-type="image" data-parent-slot-type="FULL" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: transparent;">
+                                                    <tbody>
+                                                    <tr class="newsletter-main-content">
+                                                        <td class="image image-container" align="center" style="line-height: 1px;"><img src="https://email-images.chinesepod.com/images/freedom-day/58e7343c45824ca382fbb98605c47355httpsucarecdn.jpeg" alt="Email Image" class="newsletter-image " width="323" height="auto" data-resize-width="323" data-resize-height="214" data-original-src="https://email-images.chinesepod.com/images/freedom-day/58e7343c45824ca382fbb98605c47355httpsucarecdn.jpeg" align="bottom" style="border: 0px;" /></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component" data-component-type="image" data-parent-slot-type="FULL" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: transparent;">
+                                                    <tbody>
+                                                    <tr class="newsletter-main-content">
+                                                        <td class="image image-container" align="left" style="line-height: 1px;"><img src="https://email-images.chinesepod.com/images/freedom-day/9067bc7c38a948428fd93f9ff9d2602fhttpsucarecdn.jpeg" alt="Email Image" class="newsletter-image not-resized" width="600" height="auto" data-resize-width="600" data-resize-height="0" data-original-src="https://email-images.chinesepod.com/images/freedom-day/9067bc7c38a948428fd93f9ff9d2602fhttpsucarecdn.jpeg" align="bottom" style="border: 0px;" /></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component" data-component-type="spacer" cellspacing="0" cellpadding="0" width="600" align="top" style="background-color: rgb(255, 169, 48); clear: both; height: 40px;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td height="40" style="height: 40px; font-size: 40px;">
+                                                            <div style="display: none;"> </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table data-structure-type="row" data-row-type="FULL" data-row-id="3ee7c77b-9883-516b-8fc7-a2e63ca85a22" data-row-behavior="NORMAL" data-row-repeat-count="5" data-row-sort-products="Orders" data-row-background-color-wide="transparent" cellpadding="0" cellspacing="0" width="100%" class="newsletter-row  " bgcolor="transparent">
+                            <tbody>
+                            <tr>
+                                <td class="row-td" align="center">
+                                    <table class="inner-row-table" cellpadding="0" cellspacing="0" width="600" background="https://email-images.chinesepod.com/images/freedom-day/3fde3b52f72746f4801eb5ab18bda3cehttpsucarecdn.comde3625ba-2202-40d1-9bc4-8c73e09d6726" valign="top" bgcolor="transparent" style="border-top: none; border-left: 3px solid rgb(255, 255, 255); border-right: 3px solid rgb(255, 255, 255); border-bottom: 3px solid rgb(255, 255, 255); background-repeat: no-repeat; border-radius: 0px;">
+                                        <tbody class="row-table-body" style="display: table; width: 600px;">
+                                        <tr>
+                                            <td class="slot FULL" data-structure-type="slot" data-slot-type="FULL" width="600" cellpadding="0" cellspacing="0" align="left" valign="top" style="background-color: rgb(147, 134, 230); font-weight: normal; max-width: 600px; width: 600px; overflow: visible;">
+                                                <table class="component text-component" data-component-type="text" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: rgb(255, 169, 48);">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="element-td text-element-td" style="padding: 25px; overflow-wrap: break-word; word-break: break-word;">
+                                                            <div class="text_container newsletter-main-content" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; line-height: 1.3; font-size: 16px;">
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size:22px;"><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Why Premium?</span></strong></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size:20px;"><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"> </span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size:20px;"><span style="color:#ffffff;"><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">- Expanded Vocabulary and Grammar Learning</span></span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size:20px;"><span style="color:#ffffff;"><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">- Downloads for All Lessons and Materials</span></span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size:20px;"><span style="color:#ffffff;"><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">- Interactive Dictionary and Exercises</span></span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-size:20px;"><span style="color:#ffffff;"><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">- Online Lesson With Real Teachers</span></span></span></p>
+                                                                <p style="margin: 0px; padding: 0px;"> </p>
+                                                                <p class="fix-android-mail" style="width: 550px; margin: 0px; padding: 0px;"></p>
+                                                            </div>
+                                                            <div>
+                                                                <!--[if gte mso 15]><div style="display: 'none'; font-size: 1px; line-height: 1px;">&nbsp;</div><![endif]-->
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component" data-component-type="image" data-parent-slot-type="FULL" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: rgb(255, 169, 48);">
+                                                    <tbody>
+                                                    <tr class="newsletter-main-content">
+                                                        <td class="image image-container" align="center" style="line-height: 1px;"><a href="<%= promoUrl %>" target="_blank" class="newsletter-image-link" style="line-height: 1px; text-align: center;"><img src="https://email-images.chinesepod.com/images/freedom-day/14c655ef98254ccd8918f7a2dffd8201httpsucarecdn.jpeg" alt="Email Image" class="newsletter-image " width="197" height="auto" data-resize-width="197" data-resize-height="70" data-original-src="https://email-images.chinesepod.com/images/freedom-day/14c655ef98254ccd8918f7a2dffd8201httpsucarecdn.jpeg" align="bottom" style="border: 0px;" /></a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component text-component" data-component-type="text" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: rgb(255, 169, 48);">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="element-td text-element-td" style="padding: 10px; overflow-wrap: break-word; word-break: break-word;">
+                                                            <div class="text_container newsletter-main-content" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; line-height: 1.3; font-size: 16px;">
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"> </p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-family:&quot;Times New Roman&quot;,Times,serif;"><span style="font-size:16px;"><strong>Save with TODAY ONLY promo code </strong><strong>FREEDOM828</strong></span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-family:&quot;Times New Roman&quot;,Times,serif;"><span style="font-size:16px;">Upgrade your subscription with 25% off the annual, quarterly or monthly plan.</span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="font-family:&quot;Times New Roman&quot;,Times,serif;"><span style="font-size:16px;">Limited to one promo per account.</span></span></p>
+                                                                <p class="fix-android-mail" style="width: 580px; margin: 0px; padding: 0px;"></p>
+                                                            </div>
+                                                            <div>
+                                                                <!--[if gte mso 15]><div style="display: 'none'; font-size: 1px; line-height: 1px;">&nbsp;</div><![endif]-->
+                                                            </div>
+                                                            <!--[if gte mso 15]><div style="display: none; font-size: 1px; line-height: 1px;">&nbsp;</div><![endif]-->
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component" data-component-type="spacer" cellspacing="0" cellpadding="0" width="600" align="top" style="background-color: rgb(255, 169, 48); clear: both; height: 40px;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td height="40" style="height: 40px; font-size: 40px;">
+                                                            <div style="display: none;"> </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component" data-component-type="image" data-parent-slot-type="FULL" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: transparent;">
+                                                    <tbody>
+                                                    <tr class="newsletter-main-content">
+                                                        <td class="image image-container" align="center" style="line-height: 1px;"><img src="https://email-images.chinesepod.com/images/freedom-day/5acc5aa276af45528738dc8602949454httpsucarecdn.jpeg" alt="Email Image" class="newsletter-image not-resized" width="600" height="auto" data-resize-width="0" data-resize-height="0" data-original-src="https://email-images.chinesepod.com/images/freedom-day/5acc5aa276af45528738dc8602949454httpsucarecdn.jpeg" align="bottom" style="border: 0px;" /></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="component text-component" data-component-type="text" cellspacing="0" cellpadding="0" width="600" style="clear: both; background-color: rgb(255, 255, 255);">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="element-td text-element-td" style="padding: 10px; overflow-wrap: break-word; word-break: break-word;">
+                                                            <div class="text_container newsletter-main-content" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; line-height: 1.3; font-size: 16px;">
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span style="color:#000000;"><span style="font-family:&quot;Arial&quot;,sans-serif">© <%= new Date().getFullYear() %> ChinesePod LLC | 246 West Broadway | New York NY 10013</span></span></p>
+                                                                <p style="text-align: center; margin: 0px; padding: 0px;"><span class="custom-style-link" style="text-decoration: none; color: rgb(51, 122, 183); font-family: Arial, Helvetica, sans-serif; font-size: 16px;"><a href="<%= unsubscribeUrl %>" style="text-decoration:none;" target="_blank">Unsubscribe</a></span></p>
+                                                                <p class="fix-android-mail" style="width: 580px; margin: 0px; padding: 0px;"></p>
+                                                            </div>
+                                                            <div>
+                                                                <!--[if gte mso 15]><div style="display: 'none'; font-size: 1px; line-height: 1px;">&nbsp;</div><![endif]-->
+                                                            </div>
+                                                            <!--[if gte mso 15]><div style="display: none; font-size: 1px; line-height: 1px;">&nbsp;</div><![endif]-->
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

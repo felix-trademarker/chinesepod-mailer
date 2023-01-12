@@ -1,0 +1,529 @@
+.message-blocks{
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+
+        .message-wrapper{
+          
+          display: flex;
+          flex-wrap: wrap;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+          padding: 10px;
+          border-radius: 4px;
+          position: relative;
+          background: #fff;
+
+          .message-data{
+              // margin-right: 30px;
+              width: 20%;
+              padding-right: 20px;
+
+              .message-data-name{
+                  display: block;
+                  font-weight: 600;
+                  font-size: 12px;
+              }
+
+              .message-data-time{
+                  font-size: 10px;
+                  font-style: italic;
+              }
+
+          }
+
+          .message{
+            font-size: 16px;
+            width: 80%;
+            word-break: break-word;
+    
+            pre{
+              font-size: inherit;
+              font-family: inherit;
+              color: inherit;
+            }
+
+            
+
+          }
+
+          .messageTopic{
+            display:block;
+            font-size: 10px;
+            font-weight: 600;
+            width: 100%;
+          }
+
+          .message-reply{
+            font-size: 12px;
+            margin: 0;
+            align-self: flex-end;
+          }
+
+          
+        }
+
+        .replyBox{
+          position: relative;
+          // max-height: 50px;
+          
+        }
+
+      &.hasComment{
+        
+
+        .message-wrapper{
+          margin-left: 10px;
+          top: -10px;
+          background: #f7fafc; 
+        }
+      }
+        
+    }
+
+    .profilePic{
+      width: 20px;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+
+    .profilePicReply{
+      width: 15px;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+
+}
+
+.replyBox{
+  font-size: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  display: block;
+  position: relative;
+
+  p{
+    margin: 0;
+  }
+
+  span{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 9px;
+    background: #f0f0f0;
+  }
+}
+
+
+#drop-area {
+    border: 2px dashed #ccc;
+    // border-radius: 20px;
+    // width: 480px;
+    // margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    p{
+      margin: 0;
+      font-style: italic;
+      font-size: 12px;
+      color: #666;
+    }
+}
+#drop-area.highlight {
+  border-color: purple;
+}
+p {
+  margin-top: 0;
+}
+
+#gallery {
+  margin-top: 10px;
+  & > div {
+    display: flex;
+    
+
+    & > div {
+      border: 1px solid #ccc;
+      padding: 5px;
+      margin-right: 5px;
+      position: relative;
+    }
+    img {
+      width: 150px;
+      // margin-bottom: 10px;
+      // margin-right: 10px;
+      vertical-align: middle;
+    }
+    i{
+      position: absolute;
+      right: -5px;
+      top: -5px;
+      font-size: 11px;
+      width: 15px;
+      height: 15px;
+      color: #fff;
+      border: 1px solid #ccc;
+      text-align: center;
+      border-radius: 15px;
+      background: #000;
+      font-style: normal;
+      line-height: 13px;
+      cursor: pointer;
+    }
+  }
+}
+#gallery 
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.button:hover {
+  background: #ddd;
+}
+
+.message-attachments{
+  width: 100px;
+  display: flex;
+  & > div{
+    width: 200px;
+    img{
+      width: 100%;
+    }
+  }
+  
+}
+#fileElem {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+//  image lightbox
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.custom-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.custom-modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+/* Add Animation */
+.custom-modal-content {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .custom-modal-content {
+    width: 100%;
+  }
+}
+
+.side-nav{
+  padding: 0;
+  margin: 0;
+
+  & > li{
+    list-style: none;
+    
+    
+
+    h6{
+      background: #d41b0b;
+      padding: 5px;
+      color: #fff;
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    padding-left: 0px;
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 10px;
+
+    li{
+      cursor: pointer;
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+      list-style: none;
+      background: #fff;
+      &:hover{
+        background: #f7b500;
+        color: #fff;
+      }
+
+      &.selected{
+        background: #f7b500;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.commentHead{
+  font-size: 12px;
+  background: #d41b0b;
+  text-align: right;
+
+
+  .table{
+    td{
+      padding: 10px 3px;
+      color: #fff;
+    }
+  }
+}
+
+.navbar-c2{
+  .nav-item{
+    margin-right: 20px;
+    .nav-link{
+      &:hover{
+        background: #e1001e;
+        color: #fff;
+      }
+    }
+  }
+  
+}
+
+.cprecap-navbar .navbar-brand img{
+  width: 300px;
+}
+
+
+
+.topic-block {
+  text-align: center;
+  position: relative;
+  padding: 10px 10px 0 10px;
+
+  .img-responsive{
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .author{
+    font-size: 12px;
+    margin: 0;
+    font-style: italic;
+  }
+
+  ul{
+    margin: 0;
+    padding: 0;
+
+    li{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a{
+        color: #000;
+        &:hover{
+          color: #e1001e;
+        }
+      }
+    }
+  }
+
+  .block-link{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    &:hover{
+      background: rgba(0,0,0,0.2);
+    }
+  }
+
+}
+
+.topic-block-comments{
+  .img-responsive{
+    width: 100%;
+    max-width: 150px;
+  }
+}
+
+.topic-icon{
+  margin-right: 20px;
+  font-size: 40px;
+  color: #e11e1d;
+}
+
+.comments-block{
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.userCommentOptions{
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+  color: #d41b0b;
+  padding: 5px;
+
+  .fa{
+    margin-right: 5px;
+    cursor: pointer;
+  }
+}
+
+.btnDeleteTopic{
+  font-size: 12px;
+  position: absolute;
+  bottom: 3px;
+  right: 15px;
+  color: #d41b0b;
+  z-index: 5;
+  padding: 10px 10px 0 10px;
+  cursor: pointer;
+  &:hover{
+    color: #aa180c;
+  }
+}
+
+.btnEditTopic{
+  font-size: 12px;
+  position: absolute;
+  bottom: 3px;
+  right: 45px;
+  color: #d41b0b;
+  z-index: 5;
+  padding: 10px 10px 0 10px;
+  cursor: pointer;
+  &:hover{
+    color: #aa180c;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+
+  h2{
+    font-size: 23px;
+  }
+  h4{
+    font-size: 20px;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px){
+
+  .message-blocks li {
+    .message-wrapper {
+      flex-direction: column;
+      .message-data{
+        margin: 0;
+        width: 100%;
+      }
+
+      .message{
+        width: 100%;
+      }
+
+      .message-reply{
+        // position: absolute;
+      }
+    }
+  }
+
+  .topic-icon{
+    font-size: 28px;
+  }
+}
+
+.nav.my-btn-group{
+  button.active{
+    background: var(--accent-color) !important;
+  }
+}
+
+.message-attachments{
+  width: 100%;
+
+  & > div{
+    width: 100px;
+    padding : 5px;
+
+    img{
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+}

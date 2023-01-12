@@ -1,0 +1,53 @@
+div Hello #{firstName},
+br
+div My name is Chris Anderson, and I saw that you recently studied #[strong #{currentLessonTitle}].
+br
+div.
+  I am the project manager of a new app called “ChinesePod Recap”, and we have already built all content for that lesson.
+  I would love to have you as a beta tester for the app – it allows you to recap lessons that you have
+  already studied on ChinesePod’s main platform – even if you have only a few minutes.
+  It works whether you watch the screen during play or as audio only. And it synchronizes the
+  content to your phone’s storage, you can also use it when you are in places without Internet connectivity.
+br
+div.
+  We would really like to get your input on both the app and this form of short repeating content, and as a
+  token of our gratitude we would like to credit you with 6 months of free premium access.
+  Here is the invitation link for Android:
+br
+div
+  a(href=androidInviteLink, title='Recap Invite') #{androidInviteLink}
+br
+div.
+  If you don’t have Android and use Apple/IOS phones instead, please click here and
+  I will invite you again when the IOS beta is available:
+br
+div
+  a(href=iosInviteLink, title='Recap Invite') #{iosInviteLink}
+br
+div.
+  Would love to see you as part of our beta customers!
+  And if you have any other ideas and requests related to our apps, please do not hesitate to reach out to me!
+br
+div Best,
+br
+div Chris
+br
+div -----
+br
+div Chris Anderson, Product Manager
+br
+if inUS
+  div 212-763-3751 Direct
+  div 212-666-8000 Office
+  br
+  div ChinesePod LLC
+  div 246 West Broadway, New York NY 10013
+else
+  div +886 2 7705 3166 Direct
+  div +886 2 7705 3150 Office
+  br
+  div ChinesePod Ltd.
+  div 10F, No.211, Zhongxiao East Rd., Sec.4
+  div Da’an District, Taipei City 106 (ROC)
+div
+  a(href="https://www.chinesepod.com", title='Recap Invite') www.chinesepod.com

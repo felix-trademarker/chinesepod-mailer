@@ -1,0 +1,30 @@
+div Dear #{firstName},
+br
+if eightyEightDays
+  div As you may know, the number 8 is considered a very lucky number in Chinese, and 88 even more so, therefore I want to reach out to you today! It was 88 days ago since you signed up with ChinesePod – and we are standing by since that day to help you on your journey to become fluent in Mandarin Chinese!
+  br
+else if today && days
+  div Exactly today, #{days} days ago, you took your first step to learn Mandarin Chinese when you signed up with ChinesePod!
+  br
+else if days
+  div Yesterday it was exactly #{days} days since you took your first step to learn Mandarin Chinese: Signing up with ChinesePod!
+  br
+if lessonsStudied < 1
+  div But until today, you did not complete any lesson!
+  br
+else if lessonsStudied === 1
+  div But until today, you only completed ONE lesson :-(
+  br
+if lessonsStudied < 1 && noUserLevel
+  div And you never visited our placement test.
+  br
+if lessonsStudied < 2
+  div I hope you did not give up already!!
+  br
+div We at ChinesePod are committed to guiding you through your journey, and I want to personally make sure that you get the success you deserve. And our system has helped more than tens of thousands of people to become fluent in this language.
+br
+div Please let me know if you would like to talk with me about coming up with a plan that works for you!
+br
+div Looking forward to hear from you!!
+br
+div !{representativeSignature}

@@ -1,0 +1,15 @@
+div Dear #{firstName},
+br
+div My name is #{representativeName}, I am the #{representativeTitle} at ChinesePod, and I saw that you still have not confirmed your email address yet! Please take a minute to click this confirmation link, as essential functions are not enabled until the email address is confirmed!
+br
+div
+  a(href=confirmLink, title='Confirm Email') #{confirmLink}
+br
+div Once you have taken this important first step, I recommend that you take the placement test, as it gives us an accurate assessment where your Mandarin Chinese stands. And if you are a complete newbie, please do not worry, tens of thousands of users just started out exactly like you, and are now fluent Mandarin speakers.
+br
+if northAmerica
+  div Please note that we also offer personal lessons with our teachers over Skype, Zoom etc. – and I would love to personally discuss your learning objectives and time commitment so we can set up something tailor-made for you. You can reach me during East Coast business hours (my direct number is below), or just respond to this email!
+else
+  div Please do let me know if you have any questions, or need any help in developing a personal learning plan for you!
+br
+div !{representativeSignature}

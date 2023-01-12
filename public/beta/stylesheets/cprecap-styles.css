@@ -1,0 +1,536 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Common styles */
+body {
+    background-color: #f7fafc;
+    color:#2a2d5c;
+    font-size: 14px;
+}
+body, p, a, h1, h2, h3, h4, h5 {
+    font-family: 'Roboto', sans-serif;
+}
+section, footer, header {
+    overflow: hidden;
+}
+@media (min-width: 576px) {
+    body {
+        font-size: 16px;
+    }
+}
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* navbar */
+.cprecap-navbar {
+    background-color: #f7fafc;
+}
+.cprecap-navbar .navbar-brand img {
+    width: 160px;
+    height: auto;
+}
+    
+/* cprecap-banner */
+.cprecap-banner .jumbotron {
+    margin: 0;
+    padding-bottom: 0;
+    background: none;
+}
+.cprecap-banner{
+    background-color:#ffffff;
+    background-image:url("/beta/images/banner-bg-md.jpg");
+    background-repeat: no-repeat;
+    background-size: 1200px;
+    background-position:top right;
+    padding-bottom: 100px;
+    text-align: center;
+}
+.cprecap-banner h1 {
+    margin-top: 600px;
+    font-weight: 700;
+    font-size: 2.6em;
+    color: #352700;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+    text-align: center;
+}
+.cprecap-banner h1 span {
+    display: inline-block;
+    font-weight: 300;
+    text-transform: none;
+    padding-bottom: 10px;
+}
+.cprecap-banner .cprecap-btn-try {
+    color: #ffffff;
+    background-color: #e1001e;
+    background: -moz-linear-gradient(top,  #fd0808 0%, #de0808 100%);
+    background: -webkit-linear-gradient(top,  #fd0808 0%,#de0808 100%);
+    background: linear-gradient(to bottom,  #fd0808 0%,#de0808 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fd0808', endColorstr='#de0808',GradientType=0 );
+    font-size: 1.8em;
+    font-weight: 400;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.20); 
+    line-height: 1em;
+    padding-left:20px;
+    padding-right:20px;
+}
+.button-comb {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    font-size: 1.2em;
+    color: #352700;
+}
+@media (min-width: 576px) {
+
+}
+@media (min-width: 768px) {
+    .cprecap-banner{
+        background-size: cover;
+        background-position:top center;
+        padding-bottom: 0;
+        text-align: left;
+        height: 600px;
+        padding-right: 45%;
+    }
+    .cprecap-banner h1 {
+        margin-top: 60px;
+        text-align: left;
+        font-size: 2.2em;
+    }
+    .cprecap-banner .cprecap-btn-try {
+        font-size: 1.4em;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+    .cprecap-banner{
+        background-image:url("/beta/images/banner-bg.jpg");
+        background-position:top right;
+        height: 700px;
+        padding-right: 40%;
+    }
+    .cprecap-banner h1 {
+        margin-top: 100px;
+        text-align: left;
+        font-size: 2.4em;
+    }
+    .cprecap-banner .cprecap-btn-try {
+        font-size: 1.6em;
+    }
+}
+@media (min-width: 1400px) {
+    .cprecap-banner{
+        height: 800px;
+        padding-right: 40%;
+        padding-left:2%;
+    }
+    .cprecap-banner h1 {
+        margin-top: 120px;
+        text-align: left;
+        font-size: 2.8em;
+    }
+    .cprecap-banner .cprecap-btn-try {
+        font-size: 1.8em;
+    }
+}
+@media (min-width: 1800px) { 
+    .cprecap-banner{
+        height: 900px;
+        padding-left:5%;
+    }
+    .cprecap-banner h1 {
+        margin-top: 160px;
+        text-align: left;
+        font-size: 3.2em;
+    }
+    .cprecap-banner .cprecap-btn-try {
+        font-size: 2em;
+    }
+}
+
+/* cprecap-info */
+.cprecap-info{
+    background-color: #ffffff;
+    margin:0;
+    padding-bottom: 40px;
+}
+.cprecap-info h3 {
+    font-size: 2.6em;
+    color: #2a2d5c;
+    font-weight: bold;
+}
+.cprecap-info h3 small {
+    display: inline-block;
+    font-size: 0.6em;
+    line-height: 1.4em;
+    padding-top: 10px;
+}
+.cprecap-info p {
+    color: #525f7f;
+}
+.bd-singup-modal-lg .modal-header {
+        border: none;
+}
+.beta .cprecap-info .badge {
+    font-weight: 400;
+    font-size: 0.6em;
+    line-height: 1em;
+    font-style: italic;
+    position: relative;
+    bottom:5px;
+}
+@media (min-width: 768px) {
+    .beta .cprecap-info {
+        padding-top: 80px;
+    }
+}
+@media (min-width: 992px) {
+    .beta .cprecap-info {
+        padding-top: auto;
+    }
+    .cprecap-info h3 {
+        margin-top: 100px;
+    }
+    .beta .cprecap-info h3 {
+        margin-top: 10px;
+    }
+    .cprecap-info{
+        padding-top: 100px;
+        padding-bottom: 20px;
+    }
+}
+@media (min-width: 1200px) {
+    .cprecap-info h3 {
+        margin-top: 160px;
+    }
+    .beta .cprecap-info h3 {
+        margin-top: 40px;
+    }
+}
+
+/* cprecap-video */
+.cprecap-video {
+    margin-bottom: 140px;
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 70%, #f7fafc 70%, #f7fafc 70%, #f7fafc 100%);
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 70%,#f7fafc 70%,#f7fafc 70%,#f7fafc 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 70%,#f7fafc 70%,#f7fafc 70%,#f7fafc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7fafc',GradientType=0 );
+}
+.cprecap-video .cprecap-video-frame {
+    background-color: #cccccc;
+    border-radius: 10px;
+    border:#e1a500 6px solid;
+    overflow: hidden;
+}
+
+/* cprecap-features */
+.cprecap-features{
+    background-color: #f7fafc;
+    margin: 0;
+    padding-bottom: 100px;
+}
+.cprecap-features h4 {
+    font-size: 2em;
+    color: #f7b500;
+    font-weight: bold;
+}
+.cprecap-features p {
+    color: #525f7f;
+    font-size: 1.1em;
+}
+.cprecap-features .row {
+    padding-top:80px;
+    padding-bottom: 80px;
+}
+.cprecap-features-row1 {
+    background: url("/beta/images/bitsized-illustration.png") no-repeat  center top; 
+    padding-top: 360px;
+}
+.cprecap-features-row2 {
+    background: url("/beta/images/youdecide-illustration.png") no-repeat  center top;
+    padding-top: 360px;
+}
+.cprecap-features-row3 {
+    background: url("/beta/images/history-illustration.png") no-repeat  right top; 
+    padding-top: 360px;
+}
+
+@media (min-width: 768px) {
+    .cprecap-features .row {
+        padding-top:100px;
+        padding-bottom: 100px;
+    }
+    .cprecap-features-row1 {
+        background-position:  right center; 
+        background-size: 45%;
+        padding-top: 0;
+    }
+    .cprecap-features-row2 {
+        background-position:  left center;
+        background-size: 45%;
+        padding-top: 0;
+    }
+    .cprecap-features-row3 {
+        background-position:  right center; 
+        background-size: 45%;
+        padding-top: 0;
+    }
+}
+@media (min-width: 992px) {
+    .cprecap-features .row {
+        padding-top:120px;
+        padding-bottom: 120px;
+    }
+    .cprecap-features-row1 {
+        background-size: 40%;
+    }
+    .cprecap-features-row2 {
+        background-size: 40%;
+    }
+    .cprecap-features-row3 { 
+        background-size: 40%;
+    }
+}
+@media (min-width: 1200px) {
+    .cprecap-features .row {
+        padding-top:160px;
+        padding-bottom: 160px;
+    }
+    .cprecap-features-row1 {
+        background-size: 40%;
+    }
+    .cprecap-features-row2 {
+        background-size: 40%;
+    }
+    .cprecap-features-row3 { 
+        background-size: 40%;
+    }
+}
+@media (min-width: 1400px) {
+    .cprecap-features .row {
+        padding-top:180px;
+        padding-bottom: 180px;
+    }
+    .cprecap-features-row1 {
+        background-size: 35%;
+    }
+    .cprecap-features-row2 {
+        background-size: 35%;
+    }
+    .cprecap-features-row3 { 
+        background-size: 35%;
+    }
+}
+@media (min-width: 1800px) {
+    .cprecap-features .row {
+        padding-top:200px;
+        padding-bottom: 200px;
+    }
+    .cprecap-features-row1 {
+        background-size: 30%;
+    }
+    .cprecap-features-row2 {
+        background-size: 30%;
+    }
+    .cprecap-features-row3 { 
+        background-size: 30%;
+    }
+}
+
+/* cprecap-actions */
+.cprecap-actions-banner{
+    background-color: #2487c1;
+    background-image: url("/beta/images/recap-section-bg.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+.cprecap-actions-banner h3 {
+    font-size: 2.2em;
+    font-weight: 700;
+}
+.beta .cprecap-actions h3 {
+    font-weight: 400!important;
+}
+.cprecap-actions-banner p {
+    font-size: 1.3em;
+}
+
+/* cprecap-actions */
+.cprecap-actions{
+    background-color: #e1a500;
+    background-image: url("/beta/images/triangle.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    color:#ffffff;
+}   
+.cprecap-actions .container-fluid .row {
+    padding-top: 100px;
+}
+.cprecap-actions h3 {
+    font-size: 2.2em;
+    font-weight: 700;
+    text-align: center;
+    color: #2a2d5c;
+}
+.cprecap-actions p {
+    font-size: 1.3em;
+    color: #525f7f;
+}
+.cprecap-btn-action {
+    color:#2a2d5c;
+    font-weight: 700;
+    border:#ffffff 3px solid;
+}
+
+/* footer */
+.cprecap-footer .social-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+.cprecap-footer .facebook {
+    background-image:url("/beta/images/facebook-red.svg");
+}
+.cprecap-footer .facebook:hover {
+    background-image:url("/beta/images/facebook-white.svg");
+    background-color: #e1001e;
+}
+.cprecap-footer .twitter {
+    background-image:url("/beta/images/twitter-red.svg");
+}
+.cprecap-footer .twitter:hover {
+    background-image:url("/beta/images/twitter-white.svg");
+    background-color: #e1001e;
+}
+.cprecap-footer .instagram {
+    background-image:url("/beta/images/instagram-red.svg");
+}
+.cprecap-footer .instagram:hover {
+    background-image:url("/beta/images/instagram-white.svg");
+    background-color: #e1001e;
+}
+.cprecap-footer .youtube {
+    background-image:url("/beta/images/youtube-red.svg");
+}
+.cprecap-footer .youtube:hover {
+    background-image:url("/beta/images/youtube-white.svg");
+    background-color: #e1001e;
+}
+.cprecap-footer .copyright,
+.cprecap-footer .copyright a{
+    color:#8898aa;
+    font-size: 0.9em;
+}
+.cprecap-footer .copyright a:hover {
+    color:#525f7f;
+}
+
+/* sing up page */
+.cprecap-singup {
+    background: #e1a500;
+    padding-bottom:120px;
+}
+.cprecap-singup-body {
+    background: #ffffff;
+    border-radius: 10px;
+    padding-top: 40px;
+    max-width: 780px;
+    border:#C59000 6px solid;
+}
+.cprecap-singup h1 {
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Roboto Slab', serif;
+}
+.cprecap-link-light {
+    color: #F8F9FA;
+    font-weight: 300;
+}
+.cprecap-link-light:hover {
+    color: #ffffff;
+}
+.cprecap-singup form {
+    font-size: 0.8em;
+}
+.cprecap-singup form h3 {
+    font-weight: 700;
+}
+.cprecap-singup form h4 {
+    font-size: 1.3em;
+}
+.cprecap-singup form input {
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+    border-radius: 0;
+}
+.cprecap-singup form input, .cprecap-singup form textarea {
+    font-size:1em;
+}
+.cprecap-singup .card {
+    border: #E3E3E3 1px solid;
+    border-radius: 10px!important;
+}
+.cprecap-singup .card .card-header {
+    border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
+    font-size: 1.2em;
+}
+.cprecap-singup .table .bg-light {
+    border-bottom: #ffffff 2px solid;
+}
+
+/* feedback page */
+.cprecap-feedback {
+    background: #e1a500;
+    padding-bottom:120px;
+}
+.cprecap-feedback-body {
+    background: #ffffff;
+    border-radius: 10px;
+    padding-top: 40px;
+    max-width: 780px;
+    border:#C59000 6px solid;
+}
+.cprecap-feedback h1 {
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Roboto Slab', serif;
+}
+.cprecap-link-light {
+    color: #F8F9FA;
+    font-weight: 300;
+}
+.cprecap-link-light:hover {
+    color: #ffffff;
+}
+.cprecap-feedback form {
+    font-size: 0.8em;
+}
+.cprecap-feedback form input, .cprecap-feedback form textarea {
+    font-size:1em;
+}
+.cprecap-feedback form h3 {
+    font-weight: 700;
+}
+.cprecap-feedback form h4 {
+    font-size: 1.3em;
+}
+.cprecap-feedback form .form-group {
+    border: #E3E3E3 1px solid;
+    border-radius: 10px;
+}

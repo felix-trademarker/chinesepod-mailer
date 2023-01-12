@@ -1,0 +1,61 @@
+div Dear #{firstName},
+br
+if inactiveTen
+  div.
+    Exactly one year ago, you made the decision to sign up with ChinesePod and embark on your new endeavor of learning
+    Mandarin Chinese!! So today I wanted to congratulate you but then I realized that you never were able to utilize
+    the site to its full potential!! And you did not take advantage of the more than 4000 lessons, structured courses,
+    exercises, etc.
+  br
+  div.
+    As this saddens me a little, I wanted to encourage you to get started again. All details of your existing lessons
+    are still in your account, and so is the personal vocabulary.
+  br
+else if inactiveDrop
+  div.
+    Exactly one year ago, you made the decision to sign up with ChinesePod and embark on your new endeavor of learning
+    Mandarin Chinese!! So today I wanted to congratulate you!!
+  br
+  div.
+    However, looking at your activity, it seems that recently you have not visited ChinesePod – on #{lastvisitdate}
+    was your last visit to our site. I hope you did not give up, but today’s anniversary is actually a great
+    reason to jump right in.
+  br
+else
+  div.
+    Exactly one year ago, you made the decision to sign up with ChinesePod and embark on your new endeavor of learning
+    Mandarin Chinese!! So today I wanted to congratulate you!!
+  br
+if noObjectives
+  div.
+    And if you set your Learning Objectives
+    #[a(href='https://www.chinesepod.com/objectives', title='Learning Objectives') HERE], we can tailor the lessons
+    offered to you even better for you.
+  br
+if inactiveTen && freeUser
+  div.
+    Ready to get serious? Then I would love to give you a one time 50% discount code that is issued (and will be
+    valid for the next 48 hours) – just to celebrate your anniversary and get you the full access to all paid features.
+    Click #[a(href=promoUrl, title='Special Offer') HERE] to redeem.
+  br
+if !inactiveTen && freeUser
+  div.
+    So on our special day today I would love to give you a one time 50% discount code
+    (that will be valid for the next 48 hours) – to celebrate and get you the full access to all paid features.
+    Click #[a(href=promoUrl, title='Special Offer') HERE] to redeem.
+  br
+if activeUser
+  div So in the last 12 months, you have:
+    ul
+      li taken a total of {nolessons} lessons
+      li learned a total of {wordtotal} new words
+  br
+if !freeUser
+  div.
+    Missing something specific at ChinesePod? Please let us know if you have specific interests, hobbies,
+    professional needs, etc. that you think are not specifically covered at ChinesePod?
+  div Just respond to this email, or post any ideas for new lessons in our #[a(href='https://forum.chinesepod.com', title='ChinesePod Forum') FORUM].
+  br
+div Looking forward to hear from you!!
+br
+div !{representativeSignature}

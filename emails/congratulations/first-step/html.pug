@@ -1,0 +1,38 @@
+div Dear #{firstName},
+br
+div Congratulations – you have completed your FIRST STEP –
+if recentlyConfirmed
+  div you have confirmed your email! Now it is time to get to work as there is lots of material waiting for you!
+else
+  div signed up with ChinesePod!
+br
+
+if !level
+  div Now next step for you is to confirm your level of Chinese. Best way to do that is to go through the ONBOARDING PROCESS below. If you have no experience or knowledge of Chinese whatsoever, then click on the corresponding button – no problem at all!
+  br
+  div
+    a(href="https://www.chinesepod.com/level") https://www.chinesepod.com/level
+else if level === 'newbie'
+  div As you indicated that you are new to Chinese, I would love to point you to the following lessons:
+else if level === 'elementary'
+  div As you indicated that you are pretty new to Chinese, I would love to point you to the following lessons:
+else
+  div We are bringing you new lessons every week across many levels and subjects. Please see what we have in store for you in the current week:
+
+if level && lessonLinks
+  ul
+    each link in lessonLinks
+      li
+        a(href=link.url) #{link.title}
+
+if level === 'newbie'
+  div Also, at ChinesePod you have a choice whether you want to learn TRADITIONAL or SIMPLIFIED characters – we produce most of our lessons in both versions (if you do not know the difference, please click HERE):
+  div
+    a(href="https://www.chinesepod.com/level?nextPage=true") Select Characters
+
+br
+div If you have any thoughts or comments, please do not hesitate to reach out to me – my contact information is below!
+br
+div Happy Learning with ChinesePod!
+br
+div !{representativeSignature}

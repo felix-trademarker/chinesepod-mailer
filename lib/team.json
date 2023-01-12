@@ -1,0 +1,30 @@
+{
+  "america": {
+    "representativeName": "Susie",
+    "representativeTitle": "Customer Support Leader",
+    "representativeSignature": "<div>Susie Lei <br>ChinesePod LLC <br>212 763 3752 | Direct<br>212 666 8000 | Office</div>",
+    "representativeEmail": "susie@chinesepod.com",
+    "representativeEmailFull": "Susie Lei (ChinesePod) <susie@chinesepod.com>"
+  },
+  "asia": {
+    "representativeName": "Susie",
+    "representativeTitle": "Customer Support Leader",
+    "representativeSignature": "<div>Susie Lei <br>ChinesePod LLC <br>212 763 3752 | Direct<br>212 666 8000 | Office</div>",
+    "representativeEmail": "susie@chinesepod.com",
+    "representativeEmailFull": "Susie Lei (ChinesePod) <susie@chinesepod.com>"
+  },
+  "other": {
+    "representativeName": "Susie",
+    "representativeTitle": "Customer Support Leader",
+    "representativeSignature": "<div>Susie Lei <br>ChinesePod LLC <br>212 763 3752 | Direct<br>212 666 8000 | Office</div>",
+    "representativeEmail": "susie@chinesepod.com",
+    "representativeEmailFull": "Susie Lei (ChinesePod) <susie@chinesepod.com>"
+  },
+  "videomail": {
+    "representativeName": "Nico",
+    "representativeTitle": "Customer Support Leader",
+    "representativeSignature": "<div>Nico Fung <br>ChinesePod LLC <br>212 763 3752 | Direct<br>212 666 8000 | Office</div>",
+    "representativeEmail": "nico@chinesepod.com",
+    "representativeEmailFull": "Nico Fung (ChinesePod) <nico@chinesepod.com>"
+  }
+}

@@ -1,0 +1,31 @@
+div Hello #{firstName},
+br
+div.
+  I saw that you just completed the lesson #[strong #{currentLessonTitle}], and I am very excited to tell you
+  about the new “flashcards” review feature that we are currently deploying. It allows you to review your lesson
+  immediately and give our adaptive learning engine some valuable feedback what vocabulary is hard,
+  and which words are easy for you.
+br
+if userVocabulary
+  div.
+    I see that you already have personal vocabulary in your account (I cannot see what exactly).
+    If you want to make sure that any words of new lessons are added, do not forget to click the "+" button next
+    to new phrases on our lesson pages.
+else
+  div.
+    To use it, you have to first add lesson vocabulary to your personal vocabulary.
+    This you can easily do in the vocabulary or other sections by clicking the "+" button next to phrases or whole sentences,
+    or with by following this link: #[a(href=currentLessonLink, title='Latest Lesson Vocabulary') Latest Lesson Vocabulary].
+br
+div.
+  Take a look at our new Flashcard Review here: #[a(href=reviewLink, title='Flashcard Review') Review Now]
+br
+div.
+  The system is still in beta so we would love to get as much feedback as possible.
+  Let me know if you miss any functionality and how you like the new feature overall!
+br
+div.
+  And for any questions regarding your personal learning progress (or if you want to request topics for new lessons),
+  please do not hesitate to reach out to me!
+br
+div !{representativeSignature}
