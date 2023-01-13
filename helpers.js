@@ -3348,16 +3348,17 @@ exports.sendVideoMail = async function(inputs) {
 
   // console.log("Finally", data,html);
   if (user && user.userData && user.userData.email && html && !previousEmails.includes('videomail--automated')) {
+    console.log("Send Video mail to: ", data.to);
     let tags = [];
 
     let mailgunData;
 
     
-    console.log(data)
+    // console.log(data)
     // data.to = "Felix <felix@bigfoot.com>";
     // data.from = "Felix <felix@bigfoot.com>";
 
-    console.log(inputs);
+    // console.log(inputs);
 
     // return "test";
     try {

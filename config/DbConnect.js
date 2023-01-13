@@ -6,16 +6,16 @@ var _dbAWS, _db158;
 module.exports = {
 
 
-  connectToServerAWS: function( callback ) {
-    MongoClient.connect( _variables.mongoURLAWS ,  _variables.mongoOptions, function( err, client ) {
-      _dbAWS  = client.db('chinesepod');
-      return callback( err );
-    } );
-  },
+  // connectToServerAWS: function( callback ) {
+  //   MongoClient.connect( _variables.mongoURLAWS ,  _variables.mongoOptions, function( err, client ) {
+  //     _dbAWS  = client.db('chinesepod');
+  //     return callback( err );
+  //   } );
+  // },
 
-  getDbAWS: function() {
-    return _dbAWS;
-  },
+  // getDbAWS: function() {
+  //   return _dbAWS;
+  // },
 
   connectToServer158: function( callback ) {
     MongoClient.connect( _variables.mongoURL158 ,  _variables.mongoOptions, function( err, client ) {
