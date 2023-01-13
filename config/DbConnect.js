@@ -8,7 +8,7 @@ module.exports = {
 
   connectToServerAWS: function( callback ) {
     MongoClient.connect( _variables.mongoURLAWS ,  _variables.mongoOptions, function( err, client ) {
-      _dbAWS  = client.db(_variables.mongoDB);
+      _dbAWS  = client.db('chinesepod');
       return callback( err );
     } );
   },
