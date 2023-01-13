@@ -438,7 +438,7 @@ exports.jobs = async function() {
     emailTriggerQueue.add(
         'SendVideoMail',
         { data: 'Check users every 15 min' },
-        { repeat: { cron: '* * * * *' } }
+        { repeat: { cron: '0,15,30,45 * * * *' } }
     );
 
     // // CAMPAIGN TRIGGERS

@@ -3321,7 +3321,7 @@ exports.sendVideoMail = async function(inputs) {
   let fname = _.toUpper(firstName)
 
   // FIND NAME IN VIDEOMAIL.NAMES
-  let videomail = await rpoVideoMailNames.findQuery({to:fname})
+  let videomail = await rpoVideoMailNames.findQuery({name:fname})
 
   console.log(">>>>", fname,videomail);
 
@@ -3346,7 +3346,7 @@ exports.sendVideoMail = async function(inputs) {
   }
 
 
-  // console.log("Finally", data,html);
+  console.log("Finally", data,html);
   if (user && user.userData && user.userData.email && html && !previousEmails.includes('videomail--automated')) {
     console.log("Send Video mail to: ", data.to);
     let tags = [];
@@ -3365,8 +3365,6 @@ exports.sendVideoMail = async function(inputs) {
       mailgunData = await sendGmailEmail(data, tags, addBcc, bccList);
       return "send to "+ data.to;
     } catch (e) {
-      // bugsnag.notify('GMAIL SEND NOT WORKING!');
-      // bugsnag.notify(e);
       mailgunData = await sendMailgunEmail(data, tags, addBcc, bccList);
     }
 
@@ -3388,6 +3386,8 @@ exports.sendVideoMail = async function(inputs) {
     rpoVideoMail.addUserEmailLogs(inputs)
 
     return "send to "+ data.to;
+  } else {
+    console.log("failed", data.to)
   }
 
   return "-END-"
