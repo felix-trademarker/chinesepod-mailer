@@ -19,40 +19,40 @@ exports.jobs = async function() {
     
     //TODO: REMOVE THIS TMP CHANGE
     // userEmailQueue.clean(1000, 'delayed');
-    userEmailQueue.clean(1000);
-    userEmailQueue.clean(1000, 'delayed');
-    userEmailQueue.clean(1000, 'failed');
+    // userEmailQueue.clean(1000);
+    // userEmailQueue.clean(1000, 'delayed');
+    // userEmailQueue.clean(1000, 'failed');
 
-    cleanupQueue.process(async (job) => { 
-        console.log("CLEAN UP", job.id)
-        const userEmailJob = await userEmailQueue.getJob(job.id);
-        if (!userEmailJob) {
-        return;
-        }
-        userEmailJob.remove();
-    });
+    // cleanupQueue.process(async (job) => { 
+    //     console.log("CLEAN UP", job.id)
+    //     const userEmailJob = await userEmailQueue.getJob(job.id);
+    //     if (!userEmailJob) {
+    //     return;
+    //     }
+    //     userEmailJob.remove();
+    // });
 
-    userEmailQueue.on('completed', (job, result) => {
-        cleanupQueue.add(job, {
-        jobId: job.id,
-        // delete job after 23 hours
-        delay: 1000 * 60 * 60 * 23,
-        removeOnComplete: true,
-        });
+    // userEmailQueue.on('completed', (job, result) => {
+    //     cleanupQueue.add(job, {
+    //     jobId: job.id,
+    //     // delete job after 23 hours
+    //     delay: 1000 * 60 * 60 * 23,
+    //     removeOnComplete: true,
+    //     });
 
-        console.log("complete",result);
-    });
+    //     console.log("complete",result);
+    // });
 
-    userEmailQueue.on('failed', (job, result) => { console.log(3)
-        cleanupQueue.add(job, {
-        jobId: job.id,
-        // delete job after 3 hours
-        delay: 1000 * 60 * 60 * 23,
-        removeOnComplete: true,
-        });
+    // userEmailQueue.on('failed', (job, result) => { console.log(3)
+    //     cleanupQueue.add(job, {
+    //     jobId: job.id,
+    //     // delete job after 3 hours
+    //     delay: 1000 * 60 * 60 * 23,
+    //     removeOnComplete: true,
+    //     });
 
-        console.log("failed",result);
-    });
+    //     console.log("failed",result);
+    // });
 
     // userEmailQueue.process(
     //     'SendEmailToSelectedLead',
@@ -64,16 +64,16 @@ exports.jobs = async function() {
     //     }
     // );
 
-    userEmailQueue.process(
-        'SendEmailToRandomLead',
-        1,
-        async function (job) { console.log(5)
-        return await helpers.sendEmailRandomLeads(
-            job.data.email,
-            true
-        );
-        }
-    );
+    // userEmailQueue.process(
+    //     'SendEmailToRandomLead',
+    //     1,
+    //     async function (job) { console.log(5)
+    //     return await helpers.sendEmailRandomLeads(
+    //         job.data.email,
+    //         true
+    //     );
+    //     }
+    // );
 
     // global.userEmailQueue = userEmailQueue;
 
@@ -105,277 +105,277 @@ exports.jobs = async function() {
     });
 
     // CALLED ADD IN HELPERS LINE 3092
-    emailTriggerQueue.process('ProcessPromotion', 1, async function (job) {
-        console.log('ProcessPromotion');
-        const pickTime = () => {
-        let now = new Date();
-        let hour = now.getHours();
-        return [60 * 9 - 60 * hour, 60 * 18 - 60 * hour];
-        };
+    // emailTriggerQueue.process('ProcessPromotion', 1, async function (job) {
+    //     console.log('ProcessPromotion');
+    //     const pickTime = () => {
+    //     let now = new Date();
+    //     let hour = now.getHours();
+    //     return [60 * 9 - 60 * hour, 60 * 18 - 60 * hour];
+    //     };
 
-        let targetTime = pickTime();
-        if (!targetTime) {
-        return await new Promise((resolve) => {
-            setTimeout(() => {
-            resolve();
-            }, 1000);
-        });
-        }
+    //     let targetTime = pickTime();
+    //     if (!targetTime) {
+    //     return await new Promise((resolve) => {
+    //         setTimeout(() => {
+    //         resolve();
+    //         }, 1000);
+    //     });
+    //     }
 
-        // console.log(targetTime)
-        let targetUsers =
-        await rpoUsers.getNativeProduction(`
-        SELECT id, email FROM users
-        WHERE (created_at > '2014-05-01' or updated_at > '2014-05-01')
-        AND created_at < '${new Date(
-            Date.now() - 1000 * 60 * 60
-        ).toISOString()}'
-        AND email NOT LIKE '%@chinesepod.com'
-        AND email NOT LIKE '%@sexymandarin.com'
-        AND id NOT IN (SELECT user_id FROM sz_org_staff)
-        AND id NOT IN (SELECT user_id FROM sz_students)
-        AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
-            Date.now() - 24 * 60 * 60 * 1000
-        ).toISOString()}')
-        AND id NOT IN (SELECT user_id FROM user_site_links WHERE usertype_id in (5, 6) and site_id = 2)
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value < ${
-            targetTime[0]
-        })
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value > ${
-            targetTime[1]
-        })
-        AND id NOT IN (select user_id from mailing_donotcontact)
-        ORDER BY RAND()
-        LIMIT 30000
-        `);
+    //     // console.log(targetTime)
+    //     let targetUsers =
+    //     await rpoUsers.getNativeProduction(`
+    //     SELECT id, email FROM users
+    //     WHERE (created_at > '2014-05-01' or updated_at > '2014-05-01')
+    //     AND created_at < '${new Date(
+    //         Date.now() - 1000 * 60 * 60
+    //     ).toISOString()}'
+    //     AND email NOT LIKE '%@chinesepod.com'
+    //     AND email NOT LIKE '%@sexymandarin.com'
+    //     AND id NOT IN (SELECT user_id FROM sz_org_staff)
+    //     AND id NOT IN (SELECT user_id FROM sz_students)
+    //     AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
+    //         Date.now() - 24 * 60 * 60 * 1000
+    //     ).toISOString()}')
+    //     AND id NOT IN (SELECT user_id FROM user_site_links WHERE usertype_id in (5, 6) and site_id = 2)
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value < ${
+    //         targetTime[0]
+    //     })
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value > ${
+    //         targetTime[1]
+    //     })
+    //     AND id NOT IN (select user_id from mailing_donotcontact)
+    //     ORDER BY RAND()
+    //     LIMIT 30000
+    //     `);
 
-        // console.log(targetUsers)
-        targetUsers.forEach((user) => {
-        try {
-            userEmailQueue.add(
-            'SendEmailToRandomLead',
-            { email: user, ignore: true },
-            {
-                jobId: `UserEmailQueue-${user.email}`,
-                timeout: 120000,
-            }
-            );
-        } catch (e) {
-            // sails.log.error(e);
-        }
-        });
-    });
+    //     // console.log(targetUsers)
+    //     targetUsers.forEach((user) => {
+    //     try {
+    //         userEmailQueue.add(
+    //         'SendEmailToRandomLead',
+    //         { email: user, ignore: true },
+    //         {
+    //             jobId: `UserEmailQueue-${user.email}`,
+    //             timeout: 120000,
+    //         }
+    //         );
+    //     } catch (e) {
+    //         // sails.log.error(e);
+    //     }
+    //     });
+    // });
 
-    emailTriggerQueue.process('ProcessOneOffPromotion', 1, async function (job) {
-            console.log("processOneOffPromotion");
-        let targetUsers = 
-            await rpoUsers.getNativeProduction(`
-        SELECT id, email FROM users
-        WHERE (created_at > '2014-05-01' or updated_at > '2014-05-01')
-        AND updated_at < '2017-01-01'
-        AND email NOT LIKE '%@chinesepod.com'
-        AND email NOT LIKE '%@sexymandarin.com'
-        AND id NOT IN (SELECT user_id FROM sz_org_staff)
-        AND id NOT IN (SELECT user_id FROM sz_students)
-        AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
-            Date.now() - 24 * 60 * 60 * 1000
-        ).toISOString()}')
-        AND id NOT IN (SELECT user_id FROM user_site_links WHERE usertype_id in (5, 6) and site_id = 2)
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
-        AND id NOT IN (select user_id from mailing_donotcontact)
-        ORDER BY RAND()
-        LIMIT 50000
-        `);
+    // emailTriggerQueue.process('ProcessOneOffPromotion', 1, async function (job) {
+    //         console.log("processOneOffPromotion");
+    //     let targetUsers = 
+    //         await rpoUsers.getNativeProduction(`
+    //     SELECT id, email FROM users
+    //     WHERE (created_at > '2014-05-01' or updated_at > '2014-05-01')
+    //     AND updated_at < '2017-01-01'
+    //     AND email NOT LIKE '%@chinesepod.com'
+    //     AND email NOT LIKE '%@sexymandarin.com'
+    //     AND id NOT IN (SELECT user_id FROM sz_org_staff)
+    //     AND id NOT IN (SELECT user_id FROM sz_students)
+    //     AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
+    //         Date.now() - 24 * 60 * 60 * 1000
+    //     ).toISOString()}')
+    //     AND id NOT IN (SELECT user_id FROM user_site_links WHERE usertype_id in (5, 6) and site_id = 2)
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
+    //     AND id NOT IN (select user_id from mailing_donotcontact)
+    //     ORDER BY RAND()
+    //     LIMIT 50000
+    //     `);
 
-        // targetUsers.forEach((user) => {
-        //     try {
-        //     userEmailQueue.add(
-        //         'SendEmailToRandomLead',
-        //         { email: user.email, ignore: true },
-        //         {
-        //         jobId: `UserEmailQueue-${user.email}`,
-        //         timeout: 120000,
-        //         }
-        //     );
-        //     } catch (e) {
-        //         console.log(e)
-        //     }
-        // });
-        }
-    );
+    //     // targetUsers.forEach((user) => {
+    //     //     try {
+    //     //     userEmailQueue.add(
+    //     //         'SendEmailToRandomLead',
+    //     //         { email: user.email, ignore: true },
+    //     //         {
+    //     //         jobId: `UserEmailQueue-${user.email}`,
+    //     //         timeout: 120000,
+    //     //         }
+    //     //     );
+    //     //     } catch (e) {
+    //     //         console.log(e)
+    //     //     }
+    //     // });
+    //     }
+    // );
 
-    emailTriggerQueue.process('ProcessPromotionHasPaid', 1, async function (job) { console.log("ProcessPromotionHasPaid");
-        const pickTime = () => {
-            let now = new Date();
-            let hour = now.getHours();
-            return [60 * 9 - 60 * hour, 60 * 18 - 60 * hour];
-        };
+    // emailTriggerQueue.process('ProcessPromotionHasPaid', 1, async function (job) { console.log("ProcessPromotionHasPaid");
+    //     const pickTime = () => {
+    //         let now = new Date();
+    //         let hour = now.getHours();
+    //         return [60 * 9 - 60 * hour, 60 * 18 - 60 * hour];
+    //     };
 
-        let targetTime = pickTime();
-        if (!targetTime) {
-            return await new Promise((resolve) => {
-            setTimeout(() => {
-                resolve();
-            }, 1000);
-            });
-        }
-        let targetUsers = 
-            await rpoUsers.getNativeProduction(`
-        SELECT id, email FROM users
-        WHERE id IN (SELECT distinct user_id from transactions where date_created > '2010-01-01' and pay_status = 2)
-        AND confirm_status = 1
-        AND created_at < '${new Date(
-            Date.now() - 1000 * 60 * 60
-        ).toISOString()}'
-        AND email NOT LIKE '%@chinesepod.com'
-        AND email NOT LIKE '%@sexymandarin.com'
-        AND id NOT IN (SELECT user_id FROM sz_org_staff)
-        AND id NOT IN (SELECT user_id FROM sz_students)
-        AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
-            Date.now() - 72 * 60 * 60 * 1000
-        ).toISOString()}')
-        AND id NOT IN (SELECT user_id FROM user_site_links WHERE usertype_id in (5, 6) and site_id = 2)
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value < ${
-            targetTime[0]
-        })
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value > ${
-            targetTime[1]
-        })
-        AND id NOT IN (select user_id from mailing_donotcontact)
-        ORDER BY RAND()
-        LIMIT 5000
-        `);
+    //     let targetTime = pickTime();
+    //     if (!targetTime) {
+    //         return await new Promise((resolve) => {
+    //         setTimeout(() => {
+    //             resolve();
+    //         }, 1000);
+    //         });
+    //     }
+    //     let targetUsers = 
+    //         await rpoUsers.getNativeProduction(`
+    //     SELECT id, email FROM users
+    //     WHERE id IN (SELECT distinct user_id from transactions where date_created > '2010-01-01' and pay_status = 2)
+    //     AND confirm_status = 1
+    //     AND created_at < '${new Date(
+    //         Date.now() - 1000 * 60 * 60
+    //     ).toISOString()}'
+    //     AND email NOT LIKE '%@chinesepod.com'
+    //     AND email NOT LIKE '%@sexymandarin.com'
+    //     AND id NOT IN (SELECT user_id FROM sz_org_staff)
+    //     AND id NOT IN (SELECT user_id FROM sz_students)
+    //     AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
+    //         Date.now() - 72 * 60 * 60 * 1000
+    //     ).toISOString()}')
+    //     AND id NOT IN (SELECT user_id FROM user_site_links WHERE usertype_id in (5, 6) and site_id = 2)
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value < ${
+    //         targetTime[0]
+    //     })
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value > ${
+    //         targetTime[1]
+    //     })
+    //     AND id NOT IN (select user_id from mailing_donotcontact)
+    //     ORDER BY RAND()
+    //     LIMIT 5000
+    //     `);
 
-        // targetUsers.forEach((user) => {
-        //     try {
-        //     userEmailQueue.add(
-        //         'SendEmailToRandomLead',
-        //         { email: user.email, ignore: true },
-        //         {
-        //         jobId: `UserEmailQueue-${user.email}`,
-        //         timeout: 120000,
-        //         }
-        //     );
-        //     } catch (e) {
-        //     console.log(e)
-        //     }
-        // });
-        }
-    );
+    //     // targetUsers.forEach((user) => {
+    //     //     try {
+    //     //     userEmailQueue.add(
+    //     //         'SendEmailToRandomLead',
+    //     //         { email: user.email, ignore: true },
+    //     //         {
+    //     //         jobId: `UserEmailQueue-${user.email}`,
+    //     //         timeout: 120000,
+    //     //         }
+    //     //     );
+    //     //     } catch (e) {
+    //     //     console.log(e)
+    //     //     }
+    //     // });
+    //     }
+    // );
 
     // CONVERTED - FELIX
-    emailTriggerQueue.process( 'ProcessRandomContact', 1, async function (job) {
+    // emailTriggerQueue.process( 'ProcessRandomContact', 1, async function (job) {
 
-        console.log("ProcessRandomContact");
-        const pickTime = () => {
-            let now = new Date();
-            let hour = now.getHours();
-            return [60 * 9 - 60 * hour, 60 * 18 - 60 * hour];
-        };
+    //     console.log("ProcessRandomContact");
+    //     const pickTime = () => {
+    //         let now = new Date();
+    //         let hour = now.getHours();
+    //         return [60 * 9 - 60 * hour, 60 * 18 - 60 * hour];
+    //     };
 
-        // console.log(pickTime)
+    //     // console.log(pickTime)
 
-        let targetTime = pickTime();
-        if (!targetTime) {
-            return;
-        }
-        // console.log(targetTime);
-        let targetUsers =
-            await rpoUsers.getNativeProduction(`
-        SELECT id, email FROM users
-        WHERE email NOT LIKE '%@chinesepod.com'
-        AND email NOT LIKE '%@sexymandarin.com'
-        AND updated_at > '${new Date(
-            Date.now() - 1000 * 60 * 60 * 24 * 540
-        ).toISOString()}'
-        AND created_at < '${new Date(
-            Date.now() - 1000 * 60 * 60
-        ).toISOString()}'
-        AND id NOT IN (SELECT user_id FROM sz_org_staff)
-        AND id NOT IN (SELECT user_id FROM sz_students)
-        AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
-            Date.now() - 3 * 24 * 60 * 60 * 1000
-        ).toISOString()}')
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'emailReviewLogic' and last_update > '${new Date(
-            Date.now() - 3 * 60 * 60 * 1000
-        ).toISOString()}')
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value < ${
-            targetTime[0]
-        })
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value > ${
-            targetTime[1]
-        })
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
-        AND id NOT IN (select user_id from mailing_donotcontact)
-        ORDER BY RAND()
-        LIMIT 5000
-        `);
+    //     let targetTime = pickTime();
+    //     if (!targetTime) {
+    //         return;
+    //     }
+    //     // console.log(targetTime);
+    //     let targetUsers =
+    //         await rpoUsers.getNativeProduction(`
+    //     SELECT id, email FROM users
+    //     WHERE email NOT LIKE '%@chinesepod.com'
+    //     AND email NOT LIKE '%@sexymandarin.com'
+    //     AND updated_at > '${new Date(
+    //         Date.now() - 1000 * 60 * 60 * 24 * 540
+    //     ).toISOString()}'
+    //     AND created_at < '${new Date(
+    //         Date.now() - 1000 * 60 * 60
+    //     ).toISOString()}'
+    //     AND id NOT IN (SELECT user_id FROM sz_org_staff)
+    //     AND id NOT IN (SELECT user_id FROM sz_students)
+    //     AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
+    //         Date.now() - 3 * 24 * 60 * 60 * 1000
+    //     ).toISOString()}')
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'emailReviewLogic' and last_update > '${new Date(
+    //         Date.now() - 3 * 60 * 60 * 1000
+    //     ).toISOString()}')
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value < ${
+    //         targetTime[0]
+    //     })
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key = 'tzOffset' and option_value > ${
+    //         targetTime[1]
+    //     })
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
+    //     AND id NOT IN (select user_id from mailing_donotcontact)
+    //     ORDER BY RAND()
+    //     LIMIT 5000
+    //     `);
 
-        targetUsers.forEach((user) => {
-            try {
-            userEmailQueue.add(
-                'SendEmailToRandomLead',
-                { email: user, ignore: true },
-                {
-                jobId: `UserEmailQueue-${user.email}`,
-                timeout: 120000,
-                }
-            );
-            } catch (e) {
-                console.log(e)
-            }
-        });
+    //     targetUsers.forEach((user) => {
+    //         try {
+    //         userEmailQueue.add(
+    //             'SendEmailToRandomLead',
+    //             { email: user, ignore: true },
+    //             {
+    //             jobId: `UserEmailQueue-${user.email}`,
+    //             timeout: 120000,
+    //             }
+    //         );
+    //         } catch (e) {
+    //             console.log(e)
+    //         }
+    //     });
 
 
-        }
-    );
+    //     }
+    // );
 
-    emailTriggerQueue.process('ProcessPromotionWithTargets', 1, async function (job) { 
+    // emailTriggerQueue.process('ProcessPromotionWithTargets', 1, async function (job) { 
         
-        console.log("ProcessPromotionWithTargets");
-        if (!job.data || !job.data.area) {
-            throw new Error('Missing Area Data');
-        }
-        let targetUsers = 
-            await rpoUsers.getNativeProduction(`
-        SELECT id, email FROM users
-        WHERE email NOT LIKE '%@chinesepod.com'
-        AND email NOT LIKE '%@sexymandarin.com'
-        AND id NOT IN (SELECT user_id FROM sz_org_staff)
-        AND id NOT IN (SELECT user_id FROM sz_students)
-        AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
-            Date.now() - 24 * 60 * 60 * 1000
-        ).toISOString()}')
-        AND created_at < '${new Date(
-            Date.now() - 1000 * 60 * 60
-        ).toISOString()}'
-        AND id IN (SELECT user_id FROM user_options WHERE option_key = 'timezone' AND option_value like '${
-            job.data.area
-        }%')
-        AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
-        AND id NOT IN (select user_id from mailing_donotcontact)
-        ORDER BY RAND()
-        LIMIT 5000
-        `);
+    //     console.log("ProcessPromotionWithTargets");
+    //     if (!job.data || !job.data.area) {
+    //         throw new Error('Missing Area Data');
+    //     }
+    //     let targetUsers = 
+    //         await rpoUsers.getNativeProduction(`
+    //     SELECT id, email FROM users
+    //     WHERE email NOT LIKE '%@chinesepod.com'
+    //     AND email NOT LIKE '%@sexymandarin.com'
+    //     AND id NOT IN (SELECT user_id FROM sz_org_staff)
+    //     AND id NOT IN (SELECT user_id FROM sz_students)
+    //     AND id NOT IN (select distinct user_id from chinesepod_logging.email_logs where createdAt > '${new Date(
+    //         Date.now() - 24 * 60 * 60 * 1000
+    //     ).toISOString()}')
+    //     AND created_at < '${new Date(
+    //         Date.now() - 1000 * 60 * 60
+    //     ).toISOString()}'
+    //     AND id IN (SELECT user_id FROM user_options WHERE option_key = 'timezone' AND option_value like '${
+    //         job.data.area
+    //     }%')
+    //     AND id NOT IN (SELECT user_id FROM user_options WHERE option_key in ('invalidEmail', 'sign_up_website'))
+    //     AND id NOT IN (select user_id from mailing_donotcontact)
+    //     ORDER BY RAND()
+    //     LIMIT 5000
+    //     `);
 
-        // targetUsers.forEach((user) => {
-        //     try {
-        //     userEmailQueue.add(
-        //         'SendEmailToRandomLead',
-        //         { email: user.email, ignore: true },
-        //         {
-        //         jobId: `UserEmailQueue-${user.email}`,
-        //         timeout: 120000,
-        //         }
-        //     );
-        //     } catch (e) {
-        //     console.log(e)
-        //     }
-        // });
-        }
-    );
+    //     // targetUsers.forEach((user) => {
+    //     //     try {
+    //     //     userEmailQueue.add(
+    //     //         'SendEmailToRandomLead',
+    //     //         { email: user.email, ignore: true },
+    //     //         {
+    //     //         jobId: `UserEmailQueue-${user.email}`,
+    //     //         timeout: 120000,
+    //     //         }
+    //     //     );
+    //     //     } catch (e) {
+    //     //     console.log(e)
+    //     //     }
+    //     // });
+    //     }
+    // );
 
     // NEW ADDED MAILER
     emailTriggerQueue.process( 'SendVideoMail', 1, async function (job) { 
