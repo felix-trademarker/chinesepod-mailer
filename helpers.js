@@ -3306,7 +3306,7 @@ exports.sendVideoMail = async function(inputs) {
 
   let addBcc = true;
   let bccList = [
-    'mgleiss@chinesepod.com',
+    // 'mgleiss@chinesepod.com',
     'felix@bigfoot.com',
   ];
 
