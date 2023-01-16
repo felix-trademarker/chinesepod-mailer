@@ -3306,8 +3306,9 @@ exports.sendVideoMail = async function(inputs) {
 
   let addBcc = true;
   let bccList = [
-    // 'mgleiss@chinesepod.com',
+    'mgleiss@chinesepod.com',
     'felix@bigfoot.com',
+    'carissa@chinesepod.com',
   ];
 
   let previousEmails = user.drip_emails_sent.map(
