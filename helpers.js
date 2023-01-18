@@ -3307,48 +3307,50 @@ exports.sendVideoMail = async function(inputs) {
   let addBcc = true;
   let bccList = [
     'mgleiss@chinesepod.com',
-    'felix@bigfoot.com',
     'carissa@chinesepod.com',
+    'felix@bigfoot.com',
   ];
 
   let previousEmails = user.drip_emails_sent.map(
     (email) => email.email_id.split('--')[0]
   );
 
-  console.log(previousEmails);
-  console.log("checking firstname",firstName);
+  // console.log(previousEmails);
+  // console.log("checking firstname",firstName);
 
   // CHECK IF NAME FOUND IN MONGO158 
   let fname = _.toUpper(firstName)
+  // let fname = "FELIX"
 
   // FIND NAME IN VIDEOMAIL.NAMES
-  let videomail = await rpoVideoMailNames.findQuery({name:fname})
+  let videoMailNames = (await rpoVideoMailNames.findQuery({name:fname}))[0]
+  let code = await this.getVideoId()
 
-  console.log(">>>>", fname,videomail);
+  console.log(">>>>", fname,videoMailNames);
 
-  if (firstName && videomail.length > 0) {
+  if (firstName && videoMailNames) {
     html = await email.render('videomail/html', {
       firstName: firstName ? firstName : 'Student',
       representativeName: team.videomail.representativeName,
       representativeTitle: team.videomail.representativeTitle,
       representativeSignature: team.videomail.representativeSignature,
-      code: videomail[0].id 
+      code: code
     });
 
     data = {
       from: team.videomail['representativeEmailFull'],
       to: `${fullName ? fullName + ' ' : ''} <${user.userData.email}>`,
-      subject: 'Nico Fung sent you a videomail',
+      subject: `${firstName}, Nico Fung sent you a videomail`,
       html: html,
     };
-    inputs.emailIdentifier = `videomail--automated`;
+    inputs.emailIdentifier = `videomail-v2--automated`;
   } else {
     return "No video greetings found"
   }
 
 
-  console.log("Finally", data,html);
-  if (user && user.userData && user.userData.email && html && !previousEmails.includes('videomail--automated')) {
+  // console.log("Finally", data,html);
+  if (user && user.userData && user.userData.email && html && !previousEmails.includes(inputs.emailIdentifier)) {
     console.log("Send Video mail to: ", data.to);
     let tags = [];
 
@@ -3364,7 +3366,7 @@ exports.sendVideoMail = async function(inputs) {
     // return "test";
     try {
       mailgunData = await sendGmailEmail(data, tags, addBcc, bccList);
-      return "send to "+ data.to;
+      // return "send to "+ data.to;
     } catch (e) {
       mailgunData = await sendMailgunEmail(data, tags, addBcc, bccList);
     }
@@ -3373,20 +3375,22 @@ exports.sendVideoMail = async function(inputs) {
 
     // add entry 
     let videoData = {
-      id: await this.getVideoId(),
+      id: code,
       Sent: moment().format(),
       from:"nico@chinesepod.com",
       read:false,
       text: '',
       to: firstName,
-      video: videomail[0].video
+      video: videoMailNames.link
     }
 
     inputs.email_send_id = mailgunData.id.replace("<","").replace(">","")
+    // comment out testing
     rpoVideoMail.put(videoData)
+    console.log(" >>>>>>>>>   video data saved!")
     rpoVideoMail.addUserEmailLogs(inputs)
 
-    return "send to "+ data.to;
+    return "-- done - send to "+ data.to;
   } else {
     console.log("failed", data.to)
   }
