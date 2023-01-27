@@ -3382,7 +3382,7 @@ exports.sendVideoMail = async function(inputs) {
       text: '',
       to: firstName,
       video: videoMailNames.link,
-      sendTo: data.to
+      dataTo: user.userData.email
     }
 
     inputs.email_send_id = mailgunData.id.replace("<","").replace(">","")
