@@ -3312,7 +3312,7 @@ exports.sendVideoMail = async function(inputs) {
   ];
 
   let previousEmails = user.drip_emails_sent.map(
-    (email) => email.email_id.split('--')[0]
+    (email) => email.email_id.split('---')[0]
   );
 
   // console.log(previousEmails);
